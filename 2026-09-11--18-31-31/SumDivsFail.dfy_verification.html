@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+        xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" href="./.resources/coverage.css" type="text/css"/>
+    <title>SumDivsFail.dfy, Verification coverage</title>
+</head>
+<body onload="window['PR_TAB_WIDTH']=4">
+<div class="menu" id="menu">
+    <a href="./index_verification.html">Index</a>
+    
+</div>
+<h1>SumDivsFail.dfy, Verification coverage</h1>
+<h1 hidden>file:///workspaces/dafny_lab/SumDivsFail.dfy</h1>
+<pre class="source lang-java linenums">
+<span class="na" id="1:1">function SumDivs(n: nat, d: nat): nat
+  decreases d
+{
+  if d == 0 then </span><span class="pc" id="4:18">0
+</span><span class="na" id="5:1">  else </span><span class="pc" id="5:8">(if n % d == 0 then d else 0) + SumDivs(n, d - 1)
+</span><span class="na" id="6:1">}
+
+method FindOddPerfect() returns (n: nat)
+  ensures </span><span class="pc" id="9:11">n % 2 == 1</span><span class="na" id="9:21"> && </span><span class="pc" id="9:25">n > 1</span><span class="na" id="9:30"> && </span><span class="pc" id="9:34">SumDivs(n, n - 1) == n
+</span><span class="na" id="10:1">  decreases *
+{
+  </span><span class="fc" id="12:3">n := 3;
+</span><span class="na" id="13:1">  while SumDivs(</span><span class="fc" id="13:17">n</span><span class="na" id="13:18">, </span><span class="fc" id="13:20">n - 1</span><span class="na" id="13:25">) != </span><span class="fc" id="13:30">n
+</span><span class="na" id="14:1">    invariant </span><span class="pc" id="14:15">n % 2 == 1</span><span class="nc" id="14:25"> && </span><span class="pc" id="14:29">n >= 3
+</span><span class="na" id="15:1">    decreases *
+  {
+    </span><span class="fc" id="17:5">n := n + 2;
+</span><span class="na" id="18:1">  }
+</span><span class="fc" id="19:1">}
+</span></pre>
+<div class="footer">
+    <span class="right">
+        Created with 
+        <a href="https://github.com/dafny-lang/dafny">Dafny</a>
+    </span>
+</div>
+</body>
+</html>
